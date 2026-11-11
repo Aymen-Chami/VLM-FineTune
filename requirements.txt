@@ -1,0 +1,12 @@
+torch
+torchvision
+transformers
+peft
+bitsandbytes
+accelerate
+datasets
+evaluate
+pillow
+einops
+timm
+gradio
