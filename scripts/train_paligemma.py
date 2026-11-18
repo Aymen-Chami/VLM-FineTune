@@ -24,7 +24,7 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.data.loaders import REPO_ROOT, MixedDataset, VQADataset, read_ids  # noqa: E402
-from src.training.collators import PaliGemmaTrainCollator  # noqa: E402
+from src.training.collators import PaliGemmaTrainCollator, answer_only_loss  # noqa: E402
 
 
 def parse_args():
@@ -127,11 +127,12 @@ def main() -> None:
         remove_unused_columns=False,
         label_names=["labels"],
         report_to=["tensorboard"],
+        prediction_loss_only=True,
         seed=t["seed"],
         optim="adamw_torch_fused",
     )
     trainer = Trainer(model=model, args=targs, train_dataset=train_ds, eval_dataset=eval_ds,
-                      data_collator=PaliGemmaTrainCollator(processor))
+                      data_collator=PaliGemmaTrainCollator(processor), compute_loss_func=answer_only_loss)
 
     t0 = time.time()
     resume = args.resume and any(out_dir.glob("checkpoint-*"))

@@ -14,6 +14,7 @@ export PIP_CACHE_DIR=$WORK/.cache/pip
 export TMPDIR=$WORK/tmp
 export HF_XET_HIGH_PERFORMANCE=1
 export TOKENIZERS_PARALLELISM=false
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 if [ -f $WORK/venv/bin/activate ]; then source $WORK/venv/bin/activate; fi
 EOS
 grep -q "$WORK/env.sh" ~/.bashrc || echo "source $WORK/env.sh" >> ~/.bashrc
