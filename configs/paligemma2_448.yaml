@@ -1,0 +1,33 @@
+# PaliGemma 2 3B @ 448 px, LoRA on the Gemma 2 decoder, DocVQA + ChartQA mixed (PLAN.md section 2).
+run_name: pg2_448
+base: google/paligemma2-3b-pt-448
+output_dir: outputs/pg2_448
+attn_implementation: eager      # Gemma 2 uses attention logit soft-capping -> eager is the safe choice
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  # language model only: SigLIP vision tower and projector stay frozen
+  target_regex: '.*language_model.*\.(q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)'
+
+data:
+  docvqa_limit: null            # null = all DocVQA train questions (minus the dev hold-out)
+  chartqa_limit: null           # null = all ChartQA train questions
+  eval_loss_samples: 200        # per dataset, from the quick dev subsets (loss only; ANLS is computed post-hoc)
+
+train:
+  epochs: 1
+  max_steps: -1
+  per_device_batch_size: 4
+  grad_accum: 4                 # effective batch 16
+  lr: 1.0e-4
+  warmup_ratio: 0.03
+  scheduler: cosine
+  weight_decay: 0.0
+  max_grad_norm: 1.0
+  save_steps: 500
+  eval_steps: 500
+  logging_steps: 10
+  num_workers: 3
+  seed: 42
