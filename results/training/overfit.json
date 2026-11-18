@@ -1,0 +1,113 @@
+{
+ "run_name": "overfit",
+ "config": {
+  "run_name": "pg2_448",
+  "base": "google/paligemma2-3b-pt-448",
+  "output_dir": "outputs/pg2_448",
+  "attn_implementation": "eager",
+  "lora": {
+   "r": 16,
+   "alpha": 32,
+   "dropout": 0.05,
+   "target_regex": ".*language_model.*\\.(q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)"
+  },
+  "data": {
+   "docvqa_limit": null,
+   "chartqa_limit": null,
+   "eval_loss_samples": 200
+  },
+  "train": {
+   "epochs": 20.0,
+   "max_steps": -1,
+   "per_device_batch_size": 4,
+   "grad_accum": 4,
+   "lr": 0.0002,
+   "warmup_ratio": 0.03,
+   "scheduler": "cosine",
+   "weight_decay": 0.0,
+   "max_grad_norm": 1.0,
+   "save_steps": 0,
+   "eval_steps": 500,
+   "logging_steps": 10,
+   "num_workers": 3,
+   "seed": 42
+  }
+ },
+ "train_samples": 64,
+ "train_docvqa": 32,
+ "train_chartqa": 32,
+ "effective_batch": 16,
+ "total_steps": 80,
+ "trainable_params": 20766720,
+ "total_params": 3053893872,
+ "train_time_s": 994.2970499992371,
+ "peak_gpu_mem_gb": 8.74410496,
+ "gpu": "NVIDIA A10G",
+ "log_history": [
+  {
+   "loss": 1.9026185989379882,
+   "grad_norm": 1.6012492179870605,
+   "learning_rate": 0.00019605181116313724,
+   "epoch": 2.5,
+   "step": 10
+  },
+  {
+   "loss": 0.21737198829650878,
+   "grad_norm": 3.3065168857574463,
+   "learning_rate": 0.00017746049618276545,
+   "epoch": 5.0,
+   "step": 20
+  },
+  {
+   "loss": 0.03561811447143555,
+   "grad_norm": 0.03648953139781952,
+   "learning_rate": 0.00014647231720437686,
+   "epoch": 7.5,
+   "step": 30
+  },
+  {
+   "loss": 0.0023816455155611037,
+   "grad_norm": 0.030422549694776535,
+   "learning_rate": 0.00010804665687167262,
+   "epoch": 10.0,
+   "step": 40
+  },
+  {
+   "loss": 0.0008003550581634044,
+   "grad_norm": 0.01565643958747387,
+   "learning_rate": 6.833320061985277e-05,
+   "epoch": 12.5,
+   "step": 50
+  },
+  {
+   "loss": 0.00047936756163835526,
+   "grad_norm": 0.010595411993563175,
+   "learning_rate": 3.36877341759205e-05,
+   "epoch": 15.0,
+   "step": 60
+  },
+  {
+   "loss": 0.00040469183586537837,
+   "grad_norm": 0.00868545938283205,
+   "learning_rate": 9.65495653896179e-06,
+   "epoch": 17.5,
+   "step": 70
+  },
+  {
+   "loss": 0.00040787071920931337,
+   "grad_norm": 0.009343408048152924,
+   "learning_rate": 8.110018284304133e-08,
+   "epoch": 20.0,
+   "step": 80
+  },
+  {
+   "train_runtime": 994.0097,
+   "train_samples_per_second": 1.288,
+   "train_steps_per_second": 0.08,
+   "total_flos": 1.987287091759872e+16,
+   "train_loss": 0.27001032904954625,
+   "epoch": 20.0,
+   "step": 80
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+  "name": "paligemma2_zeroshot_docvqa_train_docvqa_dev500",
+  "family": "paligemma2",
+  "stage": "zeroshot",
+  "base": "google/paligemma2-3b-pt-448",
+  "adapter": null,
+  "dataset": "docvqa",
+  "split": "train",
+  "ids_file": "docvqa_dev500_ids.json",
+  "tag": null,
+  "n": 500,
+  "metric": "anls",
+  "score": 0.020987394957983192,
+  "by_category": {
+    "Image/Photo": {
+      "score": 0.0,
+      "n": 7
+    },
+    "Yes/No": {
+      "score": 0.0,
+      "n": 2
+    },
+    "figure/diagram": {
+      "score": 0.0,
+      "n": 6
+    },
+    "form": {
+      "score": 0.016862745098039214,
+      "n": 150
+    },
+    "free_text": {
+      "score": 0.09259259259259259,
+      "n": 54
+    },
+    "handwritten": {
+      "score": 0.03225806451612903,
+      "n": 31
+    },
+    "layout": {
+      "score": 0.008592200925313945,
+      "n": 178
+    },
+    "others": {
+      "score": 0.1,
+      "n": 10
+    },
+    "table/list": {
+      "score": 0.012591575091575092,
+      "n": 156
+    }
+  },
+  "generation": {
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 64,
+    "batch_size": 8,
+    "dtype": "bf16",
+    "attn": "eager"
+  },
+  "latency_s_per_sample": 0.1990277519226074,
+  "wall_time_s": 140.68970346450806,
+  "peak_gpu_mem_gb": 8.041404416,
+  "gpu": "NVIDIA A10G",
+  "date": "2026-11-18T22:12:46+00:00"
+}

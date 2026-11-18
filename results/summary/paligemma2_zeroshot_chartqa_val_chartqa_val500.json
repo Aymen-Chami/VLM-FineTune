@@ -1,0 +1,37 @@
+{
+  "name": "paligemma2_zeroshot_chartqa_val_chartqa_val500",
+  "family": "paligemma2",
+  "stage": "zeroshot",
+  "base": "google/paligemma2-3b-pt-448",
+  "adapter": null,
+  "dataset": "chartqa",
+  "split": "val",
+  "ids_file": "chartqa_val500_ids.json",
+  "tag": null,
+  "n": 500,
+  "metric": "relaxed_accuracy",
+  "score": 0.046,
+  "by_category": {
+    "augmented": {
+      "score": 0.03187250996015936,
+      "n": 251
+    },
+    "human": {
+      "score": 0.060240963855421686,
+      "n": 249
+    }
+  },
+  "generation": {
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 64,
+    "batch_size": 8,
+    "dtype": "bf16",
+    "attn": "eager"
+  },
+  "latency_s_per_sample": 0.1875146360397339,
+  "wall_time_s": 97.36930990219116,
+  "peak_gpu_mem_gb": 8.031392768,
+  "gpu": "NVIDIA A10G",
+  "date": "2026-11-18T22:14:32+00:00"
+}
