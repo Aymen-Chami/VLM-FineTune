@@ -2,7 +2,8 @@
 
 Fine-tuning Florence-2 and PaliGemma 2 on document and chart question answering (DocVQA, ChartQA), comparing them before and after training, and deploying the best one as a web app.
 
-See [PLAN.md](PLAN.md) for the work split, models, datasets and the shared evaluation protocol.
+See [PLAN.md](PLAN.md) for the work split, models, datasets and the shared evaluation protocol, and
+[docs/FLORENCE_GUIDE.md](docs/FLORENCE_GUIDE.md) for the step-by-step Florence-2 recipe on Colab/Kaggle.
 
 ## Structure
 

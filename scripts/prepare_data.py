@@ -22,6 +22,21 @@ SEED = 42
 DEV_MIN_QUESTIONS = 1000
 
 
+def write_split(name: str, ids: list[str]) -> None:
+    """Write a split file, but never silently change a committed one."""
+    path = SPLITS_DIR / name
+    if path.exists():
+        if json.loads(path.read_text()) == ids:
+            print(f"  {name}: matches the committed file ({len(ids)} ids)")
+        else:
+            path.with_suffix(".new.json").write_text(json.dumps(ids, indent=0))
+            print(f"  WARNING {name}: differs from the committed file! New version written to "
+                  f"{path.with_suffix('.new.json').name}; keep using the committed one and report this.")
+        return
+    path.write_text(json.dumps(ids, indent=0))
+    print(f"  {name}: written ({len(ids)} ids)")
+
+
 def main() -> None:
     SPLITS_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -41,8 +56,8 @@ def main() -> None:
         dev.extend(by_doc[d])
         dev_docs.append(d)
     dev500 = random.Random(SEED).sample(dev, 500)
-    (SPLITS_DIR / "docvqa_dev_ids.json").write_text(json.dumps(dev, indent=0))
-    (SPLITS_DIR / "docvqa_dev500_ids.json").write_text(json.dumps(dev500, indent=0))
+    write_split("docvqa_dev_ids.json", dev)
+    write_split("docvqa_dev500_ids.json", dev500)
     print(f"DocVQA train: {len(ids)} questions / {len(by_doc)} docs -> dev hold-out "
           f"{len(dev)} questions from {len(dev_docs)} docs")
 
@@ -58,7 +73,7 @@ def main() -> None:
               f"features: {ds.ds.features['human_or_machine']}")
     cval = VQADataset("chartqa", "val")
     val500 = random.Random(SEED).sample(cval.ids(), 500)
-    (SPLITS_DIR / "chartqa_val500_ids.json").write_text(json.dumps(val500, indent=0))
+    write_split("chartqa_val500_ids.json", val500)
 
     # sanity: one decoded record per dataset
     for ds in (train, cval):

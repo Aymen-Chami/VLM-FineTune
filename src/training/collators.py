@@ -6,7 +6,7 @@ from typing import Sequence
 import torch
 import torch.nn.functional as F
 
-from src.models import paligemma_prompts
+from src.models import florence_prompts, paligemma_prompts
 
 
 class PaliGemmaTrainCollator:
@@ -57,3 +57,28 @@ def answer_only_loss(outputs, labels, num_items_in_batch=None):
                            ignore_index=-100, reduction="sum")
     denom = num_items_in_batch if num_items_in_batch is not None else (targets != -100).sum()
     return loss / denom
+
+
+class FlorenceTrainCollator:
+    """prompt = "<VQA>{question}" (encoder side), target = first gold answer (decoder side).
+
+    Florence-2 is an encoder-decoder (DaViT vision encoder + BART-like language model): the decoder
+    only produces the short answer, so full logits are small and no memory trick is needed.
+    Padding in the labels is set to -100 so it is ignored by the loss.
+    """
+
+    def __init__(self, processor, dtype: torch.dtype = torch.float32):
+        self.processor = processor
+        self.dtype = dtype
+
+    def __call__(self, records: Sequence[dict]) -> dict:
+        batch = self.processor(text=florence_prompts(records), images=[r["image"] for r in records],
+                               return_tensors="pt", padding="longest")
+        tok = self.processor.tokenizer
+        labels = tok([r["answers"][0] for r in records], return_tensors="pt", padding="longest",
+                     return_token_type_ids=False).input_ids
+        labels[labels == tok.pad_token_id] = -100
+        batch = dict(batch)
+        batch["labels"] = labels
+        batch["pixel_values"] = batch["pixel_values"].to(self.dtype)
+        return batch
