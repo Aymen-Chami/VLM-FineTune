@@ -1,0 +1,31 @@
+# Florence-2 base (0.23B), full fine-tune with frozen vision encoder, DocVQA + ChartQA mixed.
+# Same data, prompts-per-model and evaluation as the PaliGemma run (PLAN.md section 2).
+# For Florence-2-large: base: florence-community/Florence-2-large-ft, gradient_checkpointing: true,
+# per_device_batch_size: 4, grad_accum: 4.
+run_name: florence2_base
+base: florence-community/Florence-2-base-ft
+output_dir: outputs/florence2_base
+precision: fp16                 # T4 / P100 have no bf16 -> fp16 mixed precision (fp32 if loss goes NaN); A10G/A100: bf16
+freeze_vision: true             # DaViT vision tower frozen; projector + language model trained
+gradient_checkpointing: false
+
+data:
+  docvqa_limit: null            # null = all DocVQA train questions (minus the dev hold-out)
+  chartqa_limit: null           # null = all ChartQA train questions
+  eval_loss_samples: 200        # per dataset, from the quick dev subsets
+
+train:
+  epochs: 1
+  max_steps: -1
+  per_device_batch_size: 8
+  grad_accum: 2                 # effective batch 16, same as PaliGemma
+  lr: 5.0e-6                    # PLAN.md range 1e-6 .. 5e-6; 5e-6 because we only do 1 epoch
+  warmup_ratio: 0.03
+  scheduler: linear
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+  save_steps: 1000
+  eval_steps: 500
+  logging_steps: 10
+  num_workers: 2                # Colab free has 2 vCPUs, Kaggle 4
+  seed: 42
