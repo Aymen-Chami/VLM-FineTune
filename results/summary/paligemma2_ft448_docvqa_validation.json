@@ -1,0 +1,65 @@
+{
+  "name": "paligemma2_ft448_docvqa_validation",
+  "family": "paligemma2",
+  "stage": "ft448",
+  "base": "google/paligemma2-3b-pt-448",
+  "adapter": "outputs/pg2_448/checkpoint-4000",
+  "dataset": "docvqa",
+  "split": "validation",
+  "ids_file": null,
+  "tag": null,
+  "n": 5349,
+  "metric": "anls",
+  "score": 0.7510571132799793,
+  "by_category": {
+    "Image/Photo": {
+      "score": 0.5996460803563459,
+      "n": 98
+    },
+    "Yes/No": {
+      "score": 0.7363945578231293,
+      "n": 28
+    },
+    "figure/diagram": {
+      "score": 0.6135198380715138,
+      "n": 265
+    },
+    "form": {
+      "score": 0.8023068706292554,
+      "n": 1021
+    },
+    "free_text": {
+      "score": 0.7337926767672635,
+      "n": 765
+    },
+    "handwritten": {
+      "score": 0.6842461509776206,
+      "n": 319
+    },
+    "layout": {
+      "score": 0.805656281350789,
+      "n": 1981
+    },
+    "others": {
+      "score": 0.7608954656226419,
+      "n": 236
+    },
+    "table/list": {
+      "score": 0.6866636562248047,
+      "n": 1780
+    }
+  },
+  "generation": {
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 64,
+    "batch_size": 8,
+    "dtype": "bf16",
+    "attn": "eager"
+  },
+  "latency_s_per_sample": 0.24026335054612602,
+  "wall_time_s": 1764.8098652362823,
+  "peak_gpu_mem_gb": 8.051432448,
+  "gpu": "NVIDIA A10G",
+  "date": "2026-11-19T14:16:50+00:00"
+}

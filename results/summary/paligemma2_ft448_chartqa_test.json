@@ -1,0 +1,37 @@
+{
+  "name": "paligemma2_ft448_chartqa_test",
+  "family": "paligemma2",
+  "stage": "ft448",
+  "base": "google/paligemma2-3b-pt-448",
+  "adapter": "outputs/pg2_448/checkpoint-4000",
+  "dataset": "chartqa",
+  "split": "test",
+  "ids_file": null,
+  "tag": null,
+  "n": 2500,
+  "metric": "relaxed_accuracy",
+  "score": 0.6624,
+  "by_category": {
+    "augmented": {
+      "score": 0.8616,
+      "n": 1250
+    },
+    "human": {
+      "score": 0.4632,
+      "n": 1250
+    }
+  },
+  "generation": {
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 64,
+    "batch_size": 8,
+    "dtype": "bf16",
+    "attn": "eager"
+  },
+  "latency_s_per_sample": 0.2099802314758301,
+  "wall_time_s": 543.1468594074249,
+  "peak_gpu_mem_gb": 8.043910656,
+  "gpu": "NVIDIA A10G",
+  "date": "2026-11-19T14:26:21+00:00"
+}

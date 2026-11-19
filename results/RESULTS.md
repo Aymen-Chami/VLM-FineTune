@@ -6,17 +6,25 @@ Scores in %. DocVQA = ANLS on the full validation set (our test set, n=5,349); C
 
 | Model | Stage | DocVQA ANLS | ChartQA human | ChartQA augmented | ChartQA overall | latency (s/sample) |
 |---|---|---|---|---|---|---|
+| paligemma2 | ft448 | 75.1 | 46.3 | 86.2 | 66.2 | 0.225 |
 | paligemma2 | zeroshot | 3.0 | 7.6 | 2.1 | 4.8 | 0.191 |
 
 ## Quick dev subsets (500 DocVQA dev hold-out + 500 ChartQA val)
 
 | Model | Stage | DocVQA ANLS | ChartQA human | ChartQA augmented | ChartQA overall | latency (s/sample) |
 |---|---|---|---|---|---|---|
+| paligemma2 | ft448 (checkpoint-1000) | 76.7 | 45.0 | 74.5 | 59.8 | 0.234 |
+| paligemma2 | ft448 (checkpoint-2000) | 80.0 | 51.8 | 76.1 | 64.0 | 0.486 |
+| paligemma2 | ft448 (checkpoint-3000) | 82.0 | 54.6 | 75.3 | 65.0 | 0.228 |
+| paligemma2 | ft448 (checkpoint-4000) | 82.9 | 55.4 | 75.3 | 65.4 | 0.230 |
+| paligemma2 | ft448 (checkpoint-4173) | 82.4 | 55.0 | 75.3 | 65.2 | 0.229 |
+| paligemma2 | ft448 (final) | 82.4 | 55.0 | 75.3 | 65.2 | 0.231 |
 | paligemma2 | zeroshot | 2.1 | 6.0 | 3.2 | 4.6 | 0.193 |
 
 ## DocVQA ANLS by question type (final evaluation)
 
 | Model | Stage | Image/Photo | Yes/No | figure/diagram | form | free_text | handwritten | layout | others | table/list |
 |---|---|---|---|---|---|---|---|---|---|---|
+| paligemma2 | ft448 | 60.0 | 73.6 | 61.4 | 80.2 | 73.4 | 68.4 | 80.6 | 76.1 | 68.7 |
 | paligemma2 | zeroshot | 4.4 | 46.4 | 4.4 | 3.0 | 3.9 | 2.1 | 3.0 | 3.4 | 2.2 |
 | *n* | | 98 | 28 | 265 | 1021 | 765 | 319 | 1981 | 236 | 1780 |

@@ -1,0 +1,37 @@
+{
+  "name": "paligemma2_ft448_chartqa_val_checkpoint-1000",
+  "family": "paligemma2",
+  "stage": "ft448",
+  "base": "google/paligemma2-3b-pt-448",
+  "adapter": "outputs/pg2_448/checkpoint-1000",
+  "dataset": "chartqa",
+  "split": "val",
+  "ids_file": "chartqa_val500_ids.json",
+  "tag": "checkpoint-1000",
+  "n": 500,
+  "metric": "relaxed_accuracy",
+  "score": 0.598,
+  "by_category": {
+    "augmented": {
+      "score": 0.7450199203187251,
+      "n": 251
+    },
+    "human": {
+      "score": 0.4497991967871486,
+      "n": 249
+    }
+  },
+  "generation": {
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 64,
+    "batch_size": 8,
+    "dtype": "bf16",
+    "attn": "eager"
+  },
+  "latency_s_per_sample": 0.22338832998275757,
+  "wall_time_s": 115.49892330169678,
+  "peak_gpu_mem_gb": 8.031392768,
+  "gpu": "NVIDIA A10G",
+  "date": "2026-11-19T13:24:51+00:00"
+}
