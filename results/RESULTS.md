@@ -6,6 +6,8 @@ Scores in %. DocVQA = ANLS on the full validation set (our test set, n=5,349); C
 
 | Model | Stage | DocVQA ANLS | ChartQA human | ChartQA augmented | ChartQA overall | latency (s/sample) |
 |---|---|---|---|---|---|---|
+| florence2 | ft | 49.6 | 30.6 | 69.9 | 50.3 | 0.043 |
+| florence2 | zeroshot | 22.9 | 12.6 | 6.0 | 9.3 | 0.046 |
 | paligemma2 | ft448 | 75.1 | 46.3 | 86.2 | 66.2 | 0.225 |
 | paligemma2 | zeroshot | 3.0 | 7.6 | 2.1 | 4.8 | 0.191 |
 
@@ -13,6 +15,13 @@ Scores in %. DocVQA = ANLS on the full validation set (our test set, n=5,349); C
 
 | Model | Stage | DocVQA ANLS | ChartQA human | ChartQA augmented | ChartQA overall | latency (s/sample) |
 |---|---|---|---|---|---|---|
+| florence2 | ft (checkpoint-1000) | 55.2 | 31.7 | 59.8 | 45.8 | 0.045 |
+| florence2 | ft (checkpoint-2000) | 57.8 | 31.7 | 64.1 | 48.0 | 0.045 |
+| florence2 | ft (checkpoint-3000) | 59.7 | 33.3 | 64.9 | 49.2 | 0.044 |
+| florence2 | ft (checkpoint-4000) | 59.5 | 31.7 | 65.7 | 48.8 | 0.045 |
+| florence2 | ft (checkpoint-4173) | 59.5 | 31.7 | 66.1 | 49.0 | 0.046 |
+| florence2 | ft (final) | 59.5 | 31.7 | 66.1 | 49.0 | 0.046 |
+| florence2 | zeroshot | 24.8 | 14.9 | 5.6 | 10.2 | 0.048 |
 | paligemma2 | ft448 (checkpoint-1000) | 76.7 | 45.0 | 74.5 | 59.8 | 0.234 |
 | paligemma2 | ft448 (checkpoint-2000) | 80.0 | 51.8 | 76.1 | 64.0 | 0.486 |
 | paligemma2 | ft448 (checkpoint-3000) | 82.0 | 54.6 | 75.3 | 65.0 | 0.228 |
@@ -25,6 +34,8 @@ Scores in %. DocVQA = ANLS on the full validation set (our test set, n=5,349); C
 
 | Model | Stage | Image/Photo | Yes/No | figure/diagram | form | free_text | handwritten | layout | others | table/list |
 |---|---|---|---|---|---|---|---|---|---|---|
+| florence2 | ft | 40.9 | 45.2 | 28.6 | 61.8 | 37.7 | 49.1 | 60.1 | 39.7 | 38.9 |
+| florence2 | zeroshot | 21.7 | 32.1 | 11.0 | 25.8 | 17.7 | 24.1 | 35.0 | 21.3 | 12.0 |
 | paligemma2 | ft448 | 60.0 | 73.6 | 61.4 | 80.2 | 73.4 | 68.4 | 80.6 | 76.1 | 68.7 |
 | paligemma2 | zeroshot | 4.4 | 46.4 | 4.4 | 3.0 | 3.9 | 2.1 | 3.0 | 3.4 | 2.2 |
 | *n* | | 98 | 28 | 265 | 1021 | 765 | 319 | 1981 | 236 | 1780 |

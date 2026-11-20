@@ -1,0 +1,37 @@
+{
+  "name": "florence2_zeroshot_chartqa_test",
+  "family": "florence2",
+  "stage": "zeroshot",
+  "base": "florence-community/Florence-2-base-ft",
+  "adapter": null,
+  "dataset": "chartqa",
+  "split": "test",
+  "ids_file": null,
+  "tag": null,
+  "n": 2500,
+  "metric": "relaxed_accuracy",
+  "score": 0.0928,
+  "by_category": {
+    "augmented": {
+      "score": 0.06,
+      "n": 1250
+    },
+    "human": {
+      "score": 0.1256,
+      "n": 1250
+    }
+  },
+  "generation": {
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 64,
+    "batch_size": 8,
+    "dtype": "fp16",
+    "attn": null
+  },
+  "latency_s_per_sample": 0.04234303140640259,
+  "wall_time_s": 125.15126729011536,
+  "peak_gpu_mem_gb": 2.093258752,
+  "gpu": "NVIDIA A10G",
+  "date": "2026-11-20T21:01:47+00:00"
+}

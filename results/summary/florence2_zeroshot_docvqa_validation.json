@@ -1,0 +1,65 @@
+{
+  "name": "florence2_zeroshot_docvqa_validation",
+  "family": "florence2",
+  "stage": "zeroshot",
+  "base": "florence-community/Florence-2-base-ft",
+  "adapter": null,
+  "dataset": "docvqa",
+  "split": "validation",
+  "ids_file": null,
+  "tag": null,
+  "n": 5349,
+  "metric": "anls",
+  "score": 0.2292197102309464,
+  "by_category": {
+    "Image/Photo": {
+      "score": 0.21697384695504998,
+      "n": 98
+    },
+    "Yes/No": {
+      "score": 0.32142857142857145,
+      "n": 28
+    },
+    "figure/diagram": {
+      "score": 0.10995838653236865,
+      "n": 265
+    },
+    "form": {
+      "score": 0.25785727605513026,
+      "n": 1021
+    },
+    "free_text": {
+      "score": 0.1767081726914114,
+      "n": 765
+    },
+    "handwritten": {
+      "score": 0.24148795710200835,
+      "n": 319
+    },
+    "layout": {
+      "score": 0.350366517410488,
+      "n": 1981
+    },
+    "others": {
+      "score": 0.2131770765776643,
+      "n": 236
+    },
+    "table/list": {
+      "score": 0.12005949761800372,
+      "n": 1780
+    }
+  },
+  "generation": {
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 64,
+    "batch_size": 8,
+    "dtype": "fp16",
+    "attn": null
+  },
+  "latency_s_per_sample": 0.04913677703913048,
+  "wall_time_s": 744.4137949943542,
+  "peak_gpu_mem_gb": 2.093246464,
+  "gpu": "NVIDIA A10G",
+  "date": "2026-11-20T20:59:35+00:00"
+}

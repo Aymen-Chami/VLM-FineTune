@@ -4,7 +4,7 @@ This is the exact recipe used for PaliGemma 2 on AWS (branch `aws-paligemma`), a
 Colab/Kaggle. Same data, same splits, same metrics and the same evaluation script, so our numbers are directly
 comparable. Every command is meant to be run from the repo root, in a notebook cell with `!` in front.
 
-The PaliGemma results so far (for reference) are in [results/RESULTS.md](../results/RESULTS.md).
+The PaliGemma and Florence-2 results (both run on AWS with this pipeline) are in [results/RESULTS.md](../results/RESULTS.md).
 
 ---
 
@@ -17,7 +17,7 @@ The PaliGemma results so far (for reference) are in [results/RESULTS.md](../resu
 | **Fixed split IDs** (DocVQA dev hold-out by document, 500-question dev subsets) | `configs/splits/` (committed: use these, don't regenerate) |
 | Prompts + generation for both models (`<VQA>{question}` for Florence) | `src/models.py` |
 | Evaluation script (writes `results/preds/*.jsonl` and `results/summary/*.json`) | `scripts/evaluate.py` |
-| Florence-2 training script + config: **written but not yet run on a GPU.** Only the labelled forward/backward pass was checked (on CPU). Step 4 below is its first real test. | `scripts/train_florence.py`, `configs/florence2_base.yaml` |
+| Florence-2 training script + config: **run end to end on the AWS A10G** (bf16, `configs/florence2_base_aws.yaml`, 1 epoch in 48 min). The results are in `results/RESULTS.md`, and the weights are in the private HF repo `asdsssss27/florence2-base-docchart-ft`. On Colab/Kaggle, only the precision (fp16) and `num_workers` differ. | `scripts/train_florence.py`, `configs/florence2_base.yaml` |
 
 Please review `src/evaluation/metrics.py`: it was planned as your part, and I wrote it to unblock the baseline.
 

@@ -1,0 +1,37 @@
+{
+  "name": "florence2_ft_chartqa_val_final",
+  "family": "florence2",
+  "stage": "ft",
+  "base": "florence-community/Florence-2-base-ft",
+  "adapter": "outputs/florence2_base/final",
+  "dataset": "chartqa",
+  "split": "val",
+  "ids_file": "chartqa_val500_ids.json",
+  "tag": "final",
+  "n": 500,
+  "metric": "relaxed_accuracy",
+  "score": 0.49,
+  "by_category": {
+    "augmented": {
+      "score": 0.6613545816733067,
+      "n": 251
+    },
+    "human": {
+      "score": 0.3172690763052209,
+      "n": 249
+    }
+  },
+  "generation": {
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 64,
+    "batch_size": 8,
+    "dtype": "fp16",
+    "attn": null
+  },
+  "latency_s_per_sample": 0.0379029631614685,
+  "wall_time_s": 22.61935043334961,
+  "peak_gpu_mem_gb": 2.093147136,
+  "gpu": "NVIDIA A10G",
+  "date": "2026-11-20T22:00:43+00:00"
+}

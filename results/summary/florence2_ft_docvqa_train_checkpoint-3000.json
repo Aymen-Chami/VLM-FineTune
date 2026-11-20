@@ -1,0 +1,65 @@
+{
+  "name": "florence2_ft_docvqa_train_checkpoint-3000",
+  "family": "florence2",
+  "stage": "ft",
+  "base": "florence-community/Florence-2-base-ft",
+  "adapter": "outputs/florence2_base/checkpoint-3000",
+  "dataset": "docvqa",
+  "split": "train",
+  "ids_file": "docvqa_dev500_ids.json",
+  "tag": "checkpoint-3000",
+  "n": 500,
+  "metric": "anls",
+  "score": 0.5968205239517351,
+  "by_category": {
+    "Image/Photo": {
+      "score": 0.697420634920635,
+      "n": 7
+    },
+    "Yes/No": {
+      "score": 0.5,
+      "n": 2
+    },
+    "figure/diagram": {
+      "score": 0.2333333333333333,
+      "n": 6
+    },
+    "form": {
+      "score": 0.7337838466225829,
+      "n": 150
+    },
+    "free_text": {
+      "score": 0.45523452941753595,
+      "n": 54
+    },
+    "handwritten": {
+      "score": 0.6592065043677947,
+      "n": 31
+    },
+    "layout": {
+      "score": 0.7182238021247004,
+      "n": 178
+    },
+    "others": {
+      "score": 0.3767441860465116,
+      "n": 10
+    },
+    "table/list": {
+      "score": 0.432884710063672,
+      "n": 156
+    }
+  },
+  "generation": {
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 64,
+    "batch_size": 8,
+    "dtype": "fp16",
+    "attn": null
+  },
+  "latency_s_per_sample": 0.05170583200454712,
+  "wall_time_s": 65.54753851890564,
+  "peak_gpu_mem_gb": 2.093159424,
+  "gpu": "NVIDIA A10G",
+  "date": "2026-11-20T21:54:58+00:00"
+}
