@@ -1,5 +1,6 @@
 # PaliGemma 2 3B @ 448 px, LoRA on the Gemma 2 decoder, DocVQA + ChartQA mixed (PLAN.md section 2).
 run_name: pg2_448
+family: paligemma2
 base: google/paligemma2-3b-pt-448
 output_dir: outputs/pg2_448
 attn_implementation: eager      # Gemma 2 uses attention logit soft-capping -> eager is the safe choice

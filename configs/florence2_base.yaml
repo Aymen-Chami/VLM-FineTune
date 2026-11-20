@@ -3,6 +3,7 @@
 # For Florence-2-large: base: florence-community/Florence-2-large-ft, gradient_checkpointing: true,
 # per_device_batch_size: 4, grad_accum: 4.
 run_name: florence2_base
+family: florence2
 base: florence-community/Florence-2-base-ft
 output_dir: outputs/florence2_base
 precision: fp16                 # T4 / P100 have no bf16 -> fp16 mixed precision (fp32 if loss goes NaN); A10G/A100: bf16
