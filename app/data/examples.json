@@ -1,0 +1,198 @@
+[
+ {
+  "id": "docvqa-57376",
+  "dataset": "docvqa",
+  "category": "form",
+  "image": "/samples/docvqa-57376.jpg",
+  "question": "What is the % of raw material imported in the current year?",
+  "answers": [
+   "(79.23%)",
+   "79.23%",
+   "79.23"
+  ],
+  "predictions": {
+   "paligemma2": {
+    "base": {
+     "answer": "0",
+     "score": 0.0
+    },
+    "finetuned": {
+     "answer": "79.23%",
+     "score": 1.0
+    }
+   },
+   "florence2": {
+    "base": {
+     "answer": "1",
+     "score": 0.0
+    },
+    "finetuned": {
+     "answer": "79,23%",
+     "score": 0.833
+    }
+   }
+  }
+ },
+ {
+  "id": "docvqa-57395",
+  "dataset": "docvqa",
+  "category": "free_text",
+  "image": "/samples/docvqa-57395.jpg",
+  "question": "Where is the ITC Life Sciences and Technology Centre?",
+  "answers": [
+   "bengaluru",
+   "Bengaluru",
+   "in Bengaluru"
+  ],
+  "predictions": {
+   "paligemma2": {
+    "base": {
+     "answer": "in city",
+     "score": 0.0
+    },
+    "finetuned": {
+     "answer": "Bengaluru",
+     "score": 1.0
+    }
+   },
+   "florence2": {
+    "base": {
+     "answer": "innovating for india",
+     "score": 0.0
+    },
+    "finetuned": {
+     "answer": "Bendy, India",
+     "score": 0.0
+    }
+   }
+  }
+ },
+ {
+  "id": "docvqa-16429",
+  "dataset": "docvqa",
+  "category": "table/list",
+  "image": "/samples/docvqa-16429.jpg",
+  "question": "What is the name of the Dealer ?",
+  "answers": [
+   "A. C. Monk"
+  ],
+  "predictions": {
+   "paligemma2": {
+    "base": {
+     "answer": "person",
+     "score": 0.0
+    },
+    "finetuned": {
+     "answer": "A. C. Monk",
+     "score": 1.0
+    }
+   },
+   "florence2": {
+    "base": {
+     "answer": "A.C. monk",
+     "score": 0.9
+    },
+    "finetuned": {
+     "answer": "A. C. Monk",
+     "score": 1.0
+    }
+   }
+  }
+ },
+ {
+  "id": "chartqa-test-58",
+  "dataset": "chartqa",
+  "category": "human",
+  "image": "/samples/chartqa-test-58.jpg",
+  "question": "Which country is represented by brown color bar?",
+  "answers": [
+   "Libya"
+  ],
+  "predictions": {
+   "paligemma2": {
+    "base": {
+     "answer": "us",
+     "score": 0.0
+    },
+    "finetuned": {
+     "answer": "Libya",
+     "score": 1.0
+    }
+   },
+   "florence2": {
+    "base": {
+     "answer": "ecuador",
+     "score": 0.0
+    },
+    "finetuned": {
+     "answer": "Eucuador",
+     "score": 0.0
+    }
+   }
+  }
+ },
+ {
+  "id": "chartqa-test-114",
+  "dataset": "chartqa",
+  "category": "human",
+  "image": "/samples/chartqa-test-114.jpg",
+  "question": "What is the value of India Bar?",
+  "answers": [
+   "2.42"
+  ],
+  "predictions": {
+   "paligemma2": {
+    "base": {
+     "answer": "bar",
+     "score": 0.0
+    },
+    "finetuned": {
+     "answer": "2.42",
+     "score": 1.0
+    }
+   },
+   "florence2": {
+    "base": {
+     "answer": "0.91",
+     "score": 0.0
+    },
+    "finetuned": {
+     "answer": "2.42",
+     "score": 1.0
+    }
+   }
+  }
+ },
+ {
+  "id": "chartqa-test-1",
+  "dataset": "chartqa",
+  "category": "human",
+  "image": "/samples/chartqa-test-1.jpg",
+  "question": "What is the difference in value between Lamb and Corn?",
+  "answers": [
+   "0.57"
+  ],
+  "predictions": {
+   "paligemma2": {
+    "base": {
+     "answer": "beef",
+     "score": 0.0
+    },
+    "finetuned": {
+     "answer": "7.27",
+     "score": 0.0
+    }
+   },
+   "florence2": {
+    "base": {
+     "answer": "0",
+     "score": 0.0
+    },
+    "finetuned": {
+     "answer": "0.5",
+     "score": 0.0
+    }
+   }
+  }
+ }
+]

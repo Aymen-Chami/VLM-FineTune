@@ -1,0 +1,91 @@
+{
+ "families": {
+  "florence2": {
+   "finetuned": {
+    "chartqa": 0.5028,
+    "chartqaHuman": 0.3064,
+    "chartqaAugmented": 0.6992,
+    "docvqa": 0.49553,
+    "docvqaByType": {
+     "Image/Photo": 0.409288,
+     "Yes/No": 0.452381,
+     "figure/diagram": 0.286061,
+     "form": 0.61772,
+     "free_text": 0.376819,
+     "handwritten": 0.491441,
+     "layout": 0.601226,
+     "others": 0.397154,
+     "table/list": 0.389081
+    },
+    "latencyS": 0.043
+   },
+   "base": {
+    "chartqa": 0.0928,
+    "chartqaHuman": 0.1256,
+    "chartqaAugmented": 0.06,
+    "docvqa": 0.22922,
+    "docvqaByType": {
+     "Image/Photo": 0.216974,
+     "Yes/No": 0.321429,
+     "figure/diagram": 0.109958,
+     "form": 0.257857,
+     "free_text": 0.176708,
+     "handwritten": 0.241488,
+     "layout": 0.350367,
+     "others": 0.213177,
+     "table/list": 0.120059
+    },
+    "latencyS": 0.046
+   }
+  },
+  "paligemma2": {
+   "finetuned": {
+    "chartqa": 0.6624,
+    "chartqaHuman": 0.4632,
+    "chartqaAugmented": 0.8616,
+    "docvqa": 0.751057,
+    "docvqaByType": {
+     "Image/Photo": 0.599646,
+     "Yes/No": 0.736395,
+     "figure/diagram": 0.61352,
+     "form": 0.802307,
+     "free_text": 0.733793,
+     "handwritten": 0.684246,
+     "layout": 0.805656,
+     "others": 0.760895,
+     "table/list": 0.686664
+    },
+    "latencyS": 0.225
+   },
+   "base": {
+    "chartqa": 0.0484,
+    "chartqaHuman": 0.076,
+    "chartqaAugmented": 0.0208,
+    "docvqa": 0.030058,
+    "docvqaByType": {
+     "Image/Photo": 0.044218,
+     "Yes/No": 0.464286,
+     "figure/diagram": 0.043711,
+     "form": 0.029971,
+     "free_text": 0.038531,
+     "handwritten": 0.02055,
+     "layout": 0.029516,
+     "others": 0.033844,
+     "table/list": 0.022328
+    },
+    "latencyS": 0.191
+   }
+  }
+ },
+ "docvqaTypeCounts": {
+  "Image/Photo": 98,
+  "Yes/No": 28,
+  "figure/diagram": 265,
+  "form": 1021,
+  "free_text": 765,
+  "handwritten": 319,
+  "layout": 1981,
+  "others": 236,
+  "table/list": 1780
+ }
+}

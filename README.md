@@ -15,7 +15,7 @@ src/models.py     model wrappers with the fixed prompts (PaliGemma 2, Florence-2
 src/training/     collators / losses
 src/evaluation/   metrics (ANLS for DocVQA, relaxed accuracy for ChartQA) + tests in tests/
 results/          predictions, summaries, training logs, RESULTS.md (committed, small)
-app/              web demo
+app/              web demo (Next.js chat), see app/README.md
 outputs/          checkpoints (git-ignored; adapters go to private HF Hub repos)
 ```
 
@@ -48,6 +48,8 @@ python scripts/train_paligemma.py --config configs/paligemma2_448.yaml
 bash scripts/run_pipeline.sh configs/paligemma2_448.yaml ft448
 
 python scripts/make_results_table.py                # results/RESULTS.md
+python scripts/export_web_data.py                   # app/data/*.json for the web demo
+bash scripts/serve_demo.sh                          # AWS: model server + web demo on port 3000
 ```
 
 Final numbers use DocVQA `validation` (its test answers are hidden) and ChartQA `test`; the quick dev

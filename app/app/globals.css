@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter);
+}
+
+@theme {
+  --color-navy: #02061a;
+  --color-electric: #0a4dff;
+  --color-electric-light: #1e7bff;
+  --color-mist: #eaf2ff;
+  --color-snow: #fafcff;
+  --color-ink: #0b1530;
+  --color-ink-soft: #4a5672;
+
+  --animate-twinkle: twinkle 5s ease-in-out infinite;
+  --animate-shimmer: shimmer 1.4s linear infinite;
+
+  @keyframes twinkle {
+    0%, 100% { opacity: var(--o, 0.5); }
+    50% { opacity: 0.08; }
+  }
+  @keyframes shimmer {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--color-snow);
+  color: var(--color-ink);
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #e6edf8 25%, #f3f7fd 50%, #e6edf8 75%);
+  background-size: 200% 100%;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
